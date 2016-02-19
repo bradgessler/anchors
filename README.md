@@ -1,5 +1,7 @@
 # ⚓ Anchors ⚓
 
+[![Build Status](https://travis-ci.org/bradgessler/anchors.svg?branch=master)](https://travis-ci.org/bradgessler/anchors)
+
 This gem will add anchors to all of your websites h1-h6 headers. Its useful for static website generators, like Middleman. It turns this:
 
 ```html
@@ -53,8 +55,8 @@ You can even customize it a bit:
 require "anchors"
 use Anchors::Middleware,
   css: "section.anchorize", # CSS headers are applied to. Defaults to 'body'
-  seperator: "-",           # Change the seperator in the header. Defaults to _
-  link: false               # Don't convert the headers into links to their own anchors. Defaults to true.
+  seperator: "-",           # Change the seperator in the header. Defaults to '_'
+  link: false               # Don't convert the headers into links to their own anchors. Defaults to 'true'.
 ```
 
 ## Development
