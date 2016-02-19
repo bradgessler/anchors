@@ -28,15 +28,15 @@ module Anchors
     private
     # Super lame, but awesome way to get CSS options CSS selector.
     def css
-      options[:css] || CSS_SELECTOR
+      options.fetch :css, CSS_SELECTOR
     end
 
     def seperator
-      options[:seperator] || SEPERATOR
+      options.fetch :seperator, SEPERATOR
     end
 
     def link?
-      options[:link] || LINK
+      options.fetch :link, LINK
     end
 
     def dom_id(el)
