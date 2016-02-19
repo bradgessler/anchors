@@ -17,8 +17,8 @@ module Anchors
           if link?
             a = Nokogiri::XML::Node.new "a", doc
             a["href"] = "##{h["id"]}"
-            a.add_child h.clone
-            h.swap a
+            a.add_child h.children
+            h.add_child a
           end
         end
       end
