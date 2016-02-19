@@ -40,7 +40,14 @@ module Anchors
     end
 
     def dom_id(el)
-      el.content.downcase.gsub(/[^\d\w\s_]/, '').gsub(' ', '_')
+      id = el.content.downcase.gsub(/[^\d\w\s_]/, '').gsub(' ', seperator)
+      [id, id_count(id)].compact.join(seperator)
+    end
+
+    def id_count(id)
+      @id_counts ||= Hash.new{ |h,k| h[k] = 0 }
+      @id_counts[id] += 1
+      @id_counts[id] if @id_counts[id] > 1
     end
   end
 end
