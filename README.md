@@ -1,6 +1,24 @@
 # ⚓ Anchors ⚓
 
-This gem will add anchors to all of your websites h1-h6 headers. Its useful for static website generators, like Middleman.
+This gem will add anchors to all of your websites h1-h6 headers. Its useful for static website generators, like Middleman. It turns this:
+
+```html
+<body>
+  <h1>How are you?</h1>
+  <h2>I am fine<img src='hi.gif'/></h2>
+  <h3>How are you?</h3>
+</body>
+```
+
+into this:
+
+```html
+<body>
+  <h1 id="how_are_you"><a href="#how_are_you">How are you?</a></h1>
+  <h2 id="i_am_fine"><a href="#i_am_fine">I am fine<img src="hi.gif"></a></h2>
+  <h3 id="how_are_you_2"><a href="#how_are_you_2">How are you?</a></h3>
+</body>
+```
 
 ## Installation
 
@@ -29,14 +47,14 @@ use Anchors::Middleware
 
 and the `body` will automatically have anchors applied to all of the h1-h6 tags.
 
-If you don't want to apply anchors to all of your requests, just pass a CSS selector into the middleware:
+You can even customize it a bit:
 
 ```ruby
 require "anchors"
 use Anchors::Middleware,
   css: "section.anchorize", # CSS headers are applied to. Defaults to 'body'
-  seperator: "-", # Change the seperator in the header. Defaults to _
-  link: false # Don't convert the headers into links to their own anchors. Defaults to true.
+  seperator: "-",           # Change the seperator in the header. Defaults to _
+  link: false               # Don't convert the headers into links to their own anchors. Defaults to true.
 ```
 
 ## Development
