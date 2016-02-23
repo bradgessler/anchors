@@ -40,7 +40,12 @@ module Anchors
     end
 
     def dom_id(el)
-      id = el.content.downcase.gsub(/[^\d\w\s_]/m, '').strip.gsub(' ', seperator)
+      id = el.content.downcase
+        .gsub(/[^\d\w\s#{seperator}]/m, '') # Remove all non ASCII chars
+        .strip                              # Remove leading/trailing spaces/newlines
+        .split(' ')                         # Break apart the string into pieces
+        .compact                            # Remove empty pieces, caused by headers that span multiple lines
+        .join(seperator)                    # Join the pieces with the seperator
       [id, id_count(id)].compact.join(seperator)
     end
 

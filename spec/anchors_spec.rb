@@ -18,7 +18,8 @@ describe Anchors do
             <h2>I am fine<img src='hi.gif'/></h2>
             <h3> How are you? </h3>
             <h4>
-              Well golly I am fine!
+              Well golly
+              I am fine!
             </h4>
           </body>
           </html>"
@@ -37,6 +38,6 @@ describe Anchors do
     expect(last_response.body).to include('<h3 id="how_are_you_2"><a href="#how_are_you_2"> How are you? </a></h3>')
   end
   it "handles newlines" do
-    expect(last_response.body).to match(/<h4 id="well_golly_i_am_fine"><a href="#well_golly_i_am_fine">[\n\r\s]+Well golly I am fine![\n\r\s]+<\/a><\/h4>/m)
+    expect(last_response.body).to match(/<h4 id="well_golly_i_am_fine"><a href="#well_golly_i_am_fine">[\n\r\s]+Well golly[\n\r\s]+I am fine![\n\r\s]+<\/a><\/h4>/m)
   end
 end
