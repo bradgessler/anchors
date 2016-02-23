@@ -40,7 +40,7 @@ module Anchors
     end
 
     def dom_id(el)
-      id = el.content.downcase.gsub(/[^\d\w\s_]/, '').gsub(' ', seperator)
+      id = el.content.downcase.gsub(/[^\d\w\s_]/m, '').strip.gsub(' ', seperator)
       [id, id_count(id)].compact.join(seperator)
     end
 
